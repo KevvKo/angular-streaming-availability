@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InfoCardComponent } from './info-card/info-card.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InfoCardComponent,
-    SearchbarComponent
+    SearchbarComponent,
+    SearchResultsComponent
   ],
   imports: [
     BrowserModule,
