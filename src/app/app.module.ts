@@ -4,10 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InfoCardComponent } from './info-card/info-card.component';
+import { SearchbarComponent } from './searchbar/searchbar.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    InfoCardComponent,
+    SearchbarComponent
   ],
   imports: [
     BrowserModule,
