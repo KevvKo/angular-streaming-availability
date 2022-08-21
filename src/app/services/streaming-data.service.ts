@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry, tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,16 +11,17 @@ export class StreamingDataService {
 
   private baseUrl = 'https://ott-details.p.rapidapi.com/search';
   
-  
-  private options = {
-    headers:  new HttpHeaders({
-      'X-RapidAPI-Key': '',
-      'X-RapidAPI-Host': ''
-    }),
-    params: new HttpParams().set('title', 'space')
-  }
 
-  getData(): Observable<any> {
-    return this.http.get<any>(this.baseUrl, this.options)
+  getQueryResults(query: string): Observable<any> {
+
+    const options = {
+      headers:  new HttpHeaders({
+        'X-RapidAPI-Key': '13162000e7msh5b1718f8153de6dp13a804jsn20a9efafab4f',
+        'X-RapidAPI-Host': 'ott-details.p.rapidapi.com'
+      }),
+      params: new HttpParams().set('title', query)
+    };
+
+    return this.http.get<any>(this.baseUrl, options);
   }
 }

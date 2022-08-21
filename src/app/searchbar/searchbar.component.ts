@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { StreamingDataService } from '../services/streaming-data.service';
 
 @Component({
@@ -7,16 +7,21 @@ import { StreamingDataService } from '../services/streaming-data.service';
   styleUrls: ['./searchbar.component.css']
 })
 
-export class SearchbarComponent implements OnInit {
+
+export class SearchbarComponent {
+  
   constructor(private service: StreamingDataService) { }
 
   data: any;
+  queryValue = '';
 
-  ngOnInit(): void {
-    this.getData()
+  handleClick(): void {
+    this.getData();
   }
 
   getData(): void {
-    this.data = this.service.getData();   
+    this.service.getQueryResults( this.queryValue )
+      .subscribe( data => this.data = data );
+  
   }
 }
