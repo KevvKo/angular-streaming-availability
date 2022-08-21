@@ -10,11 +10,10 @@ import { StreamingDataService } from '../services/streaming-data.service';
 export class SearchbarComponent implements OnInit {
   constructor(private service: StreamingDataService) { }
 
-  data: number [] = [];
+  data: any;
 
   ngOnInit(): void {
-    this.getData();
-    console.log(this.data)
+    this.getData()
   }
 
   getData(): void {
