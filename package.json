@@ -4,8 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": " ng build --base-href https://github.com/KevvKo/angular-streaming-availability",
     "watch": "ng build --watch --configuration development",
+    "deploy": "npx angular-cli-ghpages --dir=dist/angular-streaming-availability",
     "test": "ng test"
   },
   "private": true,
@@ -30,6 +31,7 @@
     "@types/jasmine": "~4.0.0",
     "@typescript-eslint/eslint-plugin": "^5.33.1",
     "@typescript-eslint/parser": "^5.33.1",
+    "angular-cli-ghpages": "^1.0.3",
     "autoprefixer": "^10.4.8",
     "eslint": "^8.22.0",
     "jasmine-core": "~4.2.0",
