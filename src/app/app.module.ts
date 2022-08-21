@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InfoCardComponent } from './info-card/info-card.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
-import { SearchResultsComponent } from './search-results/search-results.component';
 import { ResultsContainerComponent } from './results-container/results-container.component';
 
 @NgModule({
@@ -16,7 +15,6 @@ import { ResultsContainerComponent } from './results-container/results-container
     AppComponent,
     InfoCardComponent,
     SearchbarComponent,
-    SearchResultsComponent,
     ResultsContainerComponent
   ],
   imports: [

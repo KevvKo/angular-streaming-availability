@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { StreamingDataService } from '../services/streaming-data.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-searchbar',
@@ -8,20 +9,29 @@ import { StreamingDataService } from '../services/streaming-data.service';
 })
 
 
-export class SearchbarComponent {
+export class SearchbarComponent implements OnInit, OnDestroy {
   
   constructor(private service: StreamingDataService) { }
 
   data: any;
+  subscription: Subscription;
+
   queryValue = '';
 
+  ngOnInit() {
+    this.subscription = this.service.currentData.subscribe( data => this.data = data );
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
   handleClick(): void {
-    this.getData();
+    this.service.changeData(this.queryValue);
   }
 
   getData(): void {
     this.service.getQueryResults( this.queryValue )
-      .subscribe( data => this.data = data );
-  
+      .subscribe( data => this.data = data?.results );
   }
 }
