@@ -9,7 +9,7 @@ export class StreamingDataService {
 
   constructor( private http: HttpClient ) { }
 
-  private baseUrl = 'https://ott-details.p.rapidapi.com/search';
+  private baseUrl = 'https://ott-details.p.rapidapi.com/advancedsearch';
   private dataSource = new BehaviorSubject<Array<any>>([]);
   currentData = this.dataSource.asObservable();
 
@@ -20,7 +20,14 @@ export class StreamingDataService {
         'X-RapidAPI-Key': '13162000e7msh5b1718f8153de6dp13a804jsn20a9efafab4f',
         'X-RapidAPI-Host': 'ott-details.p.rapidapi.com'
       }),
-      params: new HttpParams().set('title', query)
+      params: new HttpParams()
+        .set('title', query)
+        .set( 'type', 'movie')
+        .set('sort', 'latest')
+        .set('start_year', '1970')
+        .set('end_year', '2022')
+        .set('language', 'english')
+        .set('min_imdb', '6')
     };
 
     this.http.get<any>(this.baseUrl, options)

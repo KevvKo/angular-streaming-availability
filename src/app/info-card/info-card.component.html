@@ -1,4 +1,6 @@
-<div class="rounded p-4 bg-zinc-800 flex flex-col items-center mb-2">
-    <h6 class="text-emerald-400 font-medium mb-1">{{title}}</h6>
-    <p class="text-center max-w-sm">{{synopsis}}</p>
+<div class="rounded h-full p-4 bg-zinc-800 flex flex-col items-center mb-2">
+    <img class="my-4 rounded"[src]="imageUrl" [alt]=title/>
+    <h6 class="text-center text-xl text-emerald-400 font-medium mb-1">{{title}}</h6>
+    <p class="text-zinc-400 mb-8 text-sm">{{released}} - {{genre}}</p>
+    <p class="text-sm text-center max-w-sm">{{synopsis}}</p>
 </div>

@@ -8,6 +8,7 @@
     <button 
         class="transition duration-150 ease-out hover:ease-in bg-emerald-400 hover:bg-emerald-500 active:bg-emerald-600 rounded text-zinc-900 py-3 px-6 flex items-center"
         (click)="handleClick()"    
+        (keyup.enter)="handleClick()"
     > 
         search
         <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
